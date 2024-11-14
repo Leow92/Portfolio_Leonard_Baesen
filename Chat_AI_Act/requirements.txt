@@ -1,0 +1,12 @@
+Flask==3.0.3
+requests
+debugpy # Required for debugging.
+gunicorn
+langchain
+langchain_community
+langchain_huggingface
+sentence-transformers==3.0.1
+torch>=2.4.0
+faiss-cpu==1.7.2
+google-cloud-storage
+pymupdf
