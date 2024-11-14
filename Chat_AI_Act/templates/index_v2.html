@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Public Sans' rel='stylesheet'>
+    <title>Chat AI Act</title>
+    <style>
+        body {
+            font-family: 'Public Sans';
+            font-size: 16px;
+            margin: 20px;
+            padding: 0;
+            background-color: #f7e194; /* background-color: #f7e194; #f7e19440 */
+            color: #36464b; /* Dark text color for readability */
+        }
+
+        .guidelines {
+            color: #36464b;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 16px;
+        }
+
+        #askButton {
+            background-color: #36464b; /* Dark button color */
+            color: white; /* White text on buttons */
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        #askButton:hover {
+            background-color: #646869; /* Slightly lighter color for hover effect */
+        }
+
+        #queryInput {
+            height: 20px;
+            width: 90%;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: white; /* White background for the input */
+            border: 1px solid #646869; /* Border color matching the theme */
+            border-radius: 5px;
+            margin-left: 10px;
+            color: #36464b;
+            font-size: 16px;
+        }
+
+        #responseDiv {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: white; /* White background for the response area */
+            border: 1px solid #646869; /* Border color matching the theme */
+            border-radius: 5px;
+            width: 90%;
+            margin-left: 10px;
+            color: #36464b; /* Dark text color for the response */
+            max-height: 500px; /* Set a max height for long responses */
+            overflow-y: auto; /* Enable vertical scrolling for long content */
+            white-space: pre-wrap; /* Preserve whitespace and line breaks */
+        }
+        
+        .header {
+            display: flex;
+            flex-direction: column; /* Arrange items vertically */
+            align-items: center; /* Center items vertically */
+        }
+
+        .title {
+            margin-top: 20px; /* Add spacing between title and logo */
+            color: black;
+        }
+
+        .logo {
+            position: absolute;
+            width: 120px;
+            top: 10px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">Chat AI Act</h1>
+        <img src="{{ url_for('static', filename='logo_Sailpeak.png') }}" alt="Company Logo" class="logo">
+    </header>
+
+    <!-- Guidelines section -->
+    <p class="guidelines">
+        The tool uses the <a href="https://mistral.ai/fr/news/announcing-mistral-7b/" target="_blank">Mistral 7B</a> model and a Retrieval Augmented Generation (RAG) approach.
+        Ask questions about the <a href="https://www.europarl.europa.eu/doceo/document/TA-9-2024-0138_EN.pdf" target="_blank">EU AI Act</a>, and the AI will retrieve and generate responses.
+    </p>
+
+    <!-- Input and Buttons -->
+    <input type="text" id="queryInput" placeholder="Ask a question">
+    <button id="askButton">Submit</button>
+    <div id="responseDiv">
+        <p id="response-message"></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const askButton = document.getElementById('askButton');
+            const queryInput = document.getElementById('queryInput');
+            const responseDiv = document.getElementById('responseDiv');
+    
+            // Function to handle submitting the question
+            function submitQuery() {
+                const query = queryInput.value;
+                if (!query) return;  // Prevent submitting empty questions
+                fetch('/ask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query: query })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    //console.log(data);
+                    //const botMessage = data.answer;
+                    //responseDiv.innerText = botMessage;
+                    //queryInput.value = ''; // Clear input field after submitting
+                    const botMessage = data.answer;
+
+                    // Clear previous content before updating
+                    responseDiv.innerHTML = ''; // Clears existing HTML content
+
+                    // Create a new paragraph element for the response
+                    const responseParagraph = document.createElement('p');
+                    responseParagraph.textContent = botMessage;
+                    responseParagraph.classList.add('response-message'); // Add a CSS class for styling
+
+                    // Append the paragraph to the responseDiv
+                    responseDiv.appendChild(responseParagraph);
+
+                    // Optionally scroll down to the latest message
+                    responseDiv.scrollTop = responseDiv.scrollHeight;  // Scroll to bottom
+                })
+                .catch(error => {
+                    console.error('Error sending request:', error);
+                    responseDiv.innerText = "An error occurred.";
+                });
+            }
+    
+            // Handle button click to submit query
+            askButton.addEventListener('click', submitQuery);
+    
+            // Handle "Enter" key press to simulate button click
+            queryInput.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    event.preventDefault(); // Prevent default behavior (form submission or new line)
+                    askButton.click(); // Simulate button click
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Public Sans' rel='stylesheet'>
+    <title>Chat AI Act</title>
+    <style>
+        body {
+            font-family: 'Public Sans';
+            font-size: 16px;
+            margin: 20px;
+            padding: 0;
+            background-color: #f7e194; /* Light background color */
+            color: #36464b; /* Dark text color for readability */
+        }
+
+        .title {
+            color: #000000; /* Dark color for the main title */
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        #loadButton, #askButton {
+            background-color: #36464b; /* Dark button color */
+            color: white; /* White text on buttons */
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        #loadButton:hover, #askButton:hover {
+            background-color: #646869; /* Slightly lighter color for hover effect */
+        }
+
+        #queryInput {
+            width: 60%;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: white; /* White background for the response area */
+            border: 1px solid #646869; /* Border color matching the theme */
+            border-radius: 5px;
+            margin-left: 10px;
+            color: #36464b;
+            font-size: 16px;
+        }
+
+        #responseDiv {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: white; /* White background for the response area */
+            border: 1px solid #646869; /* Border color matching the theme */
+            border-radius: 5px;
+            width: 60%;
+            margin-left: 10px;
+            color: #36464b; /* Dark text color for the response */
+            align-self: flex-start;
+        }
+
+        #loadMessage {
+            color: #36464b; /* Dark color for status messages */
+            font-weight: bold;
+            text-align: left;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Ask your questions about the AI Act!</h1>
+    
+    <input type="text" id="queryInput" placeholder="Ask a question">
+    <button id="askButton">Submit</button>
+    <div id="responseDiv"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const askButton = document.getElementById('askButton');
+            const queryInput = document.getElementById('queryInput');
+            const responseDiv = document.getElementById('responseDiv');
+
+            askButton.addEventListener('click', () => {
+                const query = queryInput.value;
+                /*queryInput.value = '';*/
+                fetch('/ask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query: query })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    const botMessage = data.answer;
+                    responseDiv.innerText = botMessage;
+                })
+                .catch(error => {
+                    console.error('Error sending request:', error);
+                    responseDiv.innerText = "An error occurred.";
+                });
+            });
+        });
+    </script>
+</body>
+</html>

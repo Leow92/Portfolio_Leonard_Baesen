@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Public Sans' rel='stylesheet'>
+    <title>Chat AI Act</title>
+    <style>
+        body {
+            font-family: 'Public Sans';
+            font-size: 16px;
+            margin: 20px;
+            padding: 0;
+            background-color: #f7e194;
+            color: #36464b;
+        }
+
+        .title {
+            color: #000000;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 36px;
+        }
+
+        .guidelines {
+            color: #36464b;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        #loadButton, #askButton {
+            background-color: #36464b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+
+        #loadButton:hover, #askButton:hover {
+            background-color: #646869;
+        }
+
+        #queryInput {
+            width: 80%;
+            margin-top: 10px;
+            padding: 15px;
+            background-color: white;
+            border: 1px solid #646869;
+            border-radius: 5px;
+            margin-left: 10px;
+            color: #36464b;
+            font-size: 16px;
+        }
+
+        #responseDiv {
+            width: 80%;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #646869;
+            border-radius: 5px;
+            margin-left: 10px;
+            color: #36464b;
+            align-self: flex-start;
+        }
+
+        #loadMessage {
+            color: #36464b;
+            font-weight: bold;
+            text-align: left;
+            font-size: 16px;
+            margin-left: 10px;
+        }
+
+        .chatHistoryTitle {
+            color: #000000;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        #chatBox {
+            width: 80%;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white; /* White background for chat history */
+            border: 1px solid #646869; /* Border color matching the theme */
+            border-radius: 5px;
+            margin-left: 10px;
+            color: #36464b; /* Dark text color for the chat history */
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .chat-message {
+            margin-bottom: 10px;
+        }
+
+        .user-message {
+            font-weight: bold;
+            color: #36464b;
+        }
+
+        .assistant-message {
+            color: #36464b;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">Ask your questions about the AI Act!</h1>
+
+    <!-- Guidelines section -->
+    <p class="guidelines">
+        This tool uses the <a href="https://mistral.ai/fr/news/announcing-mistral-7b/" target="_blank">Mistral 7B</a> model and a Retrieval Augmented Generation (RAG) approach.
+        Ask questions about the <a href="https://www.europarl.europa.eu/doceo/document/TA-9-2024-0138_EN.pdf" target="_blank">EU AI Act</a>, and the AI will retrieve and generate accurate responses based on the provided document.
+    </p>
+
+    <!-- Input and Buttons -->
+    <input type="text" id="queryInput" placeholder="Ask a question">
+    <button id="askButton">Submit</button>
+    <div id="responseDiv"></div>
+    
+    <div id="chatBox">
+        <div id="chatHistoryTitle">Chat History:</div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const askButton = document.getElementById('askButton');
+            const queryInput = document.getElementById('queryInput');
+            const responseDiv = document.getElementById('responseDiv');
+            const chatBox = document.getElementById('chatBox');
+
+            askButton.addEventListener('click', () => {
+                const query = queryInput.value;
+                queryInput.value = '';
+                fetch('/ask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query: query })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    const botMessage = data.answer;
+                    responseDiv.innerText = botMessage;
+
+                    // Update chat history
+                    updateChatBox(data.chat_history);
+                })
+                .catch(error => {
+                    console.error('Error sending request:', error);
+                    responseDiv.innerText = "An error occurred.";
+                });
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter') {
+                    askButton.click();
+                }
+            });
+
+            function updateChatBox(chatHistory) {
+                chatBox.innerHTML = '<div class="chatHistoryTitle">Chat History:</div>';
+                chatHistory.forEach(message => {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.classList.add('chat-message');
+                    if (message.user) {
+                        messageDiv.classList.add('user-message');
+                        messageDiv.innerText = `User: ${message.user}`;
+                    } else if (message.assistant) {
+                        messageDiv.classList.add('assistant-message');
+                        messageDiv.innerText = `Assistant: ${message.assistant}`;
+                    }
+                    chatBox.appendChild(messageDiv);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
