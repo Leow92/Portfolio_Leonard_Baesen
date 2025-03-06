@@ -1,4 +1,4 @@
-# Project Title: Enhancing Mental Preparation for Young Rugby Athletes at INSEP
+# Enhancing Mental Preparation for Young Rugby Athletes at INSEP
 
 **Project Overview**
 
