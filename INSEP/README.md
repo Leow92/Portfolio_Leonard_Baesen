@@ -1,5 +1,6 @@
 # Enhancing Mental Preparation for Young Rugby Athletes at INSEP
 
+
 **Project Overview**
 
 This project, conducted during an internship at the Pole Performance at INSEP (National Institute of Sport, Expertise, and Performance), focused on improving the mental preparation of the young French national rugby team. By collaborating closely with psychologists, coaches, and athletes, I contributed to a holistic approach to athlete development. This involved:
@@ -10,11 +11,14 @@ This project, conducted during an internship at the Pole Performance at INSEP (N
 
 This project aimed to optimize athletes' training, recovery, and overall performance through data-driven mental preparation techniques.
 
+
+---------------------------------------------------
+
 **Technology Used**
 
 * **Python:** Used for data retrieval, processing, visualization, and algorithm development.
-* **Data Visualization Libraries (e.g., Matplotlib, Seaborn, Plotly):** Employed to create meaningful visualizations of athlete data. (Be specific if you can remember which ones you used.)
-* **Database Technologies:** Utilized for data retrieval and manipulation from dynamic databases: LimeSurvey and Google Form.
+* **Data Visualization Libraries:** Employed to create meaningful visualizations of athlete data: **Matplotlib, Plotly, Seaborn**.
+* **Database Technologies:** Utilized for data retrieval and manipulation from dynamic databases: **LimeSurvey** and **Google Form**.
 * **Custom Algorithm Development:** Designed and implemented an algorithm for generating personalized weekly reports.
 * **Flask:** Used Flask webapp to generate HTML files.
 * **Collaboration with INSEP Psychologists and Coaches:** Integrated psychological and coaching expertise into the project.
