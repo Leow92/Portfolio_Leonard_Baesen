@@ -11,17 +11,17 @@ A collection of **my work**: various documents showcasing various **projects** a
 
 
 ### INSEP | Paris, France | February 2023 - Sept 2023
-Internship Data high performance automation engineer
-Goal: Enhance the mental preparation of athletes in the French national youth rugby team.
-Impacts:
+Internship Data high performance automation engineer  
+Goal: Enhance the mental preparation of athletes in the French national youth rugby team.  
+Impacts:  
 ● Retrieved and processed athletes' data dynamically through APIs  
 ● Developed and automated data management using Python  
 ● Created a Python-based algorithm to generate weekly individual HTML reports for 24 athletes, including personalized insights for mental performance optimization  
 
 
 ### Thales | Paris, France | March 2022 - Sept 2022
-Internship Radar waveform learning engineer for electromagnetic listening
-Goal: Investigate and propose an hypothesis on pattern detection thresholds on radars’ detection,
+Internship Radar waveform learning engineer for electromagnetic listening  
+Goal: Investigate and propose an hypothesis on pattern detection thresholds on radars’ detection.  
 Impacts:
 ● Determined the relationship between classification thresholds and the probability of false alarms
 (PFA)  
