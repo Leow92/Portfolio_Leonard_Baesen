@@ -1,28 +1,69 @@
-# Léonard Baesen - Portfolio
+<h1 align="left">Léonard Baesen - Portfolio</h1>
 
+Welcome! This portfolio showcases a collection of my projects and experiences, highlighting my skills in data science, machine learning, and software development. I specialize in leveraging data to drive impactful solutions and optimize performance.
 
-A collection of **my work**: various documents showcasing various **projects** and **experiences** from **my professional journey**.
+## Table of Contents
 
+- [Projects](#projects)
+    - [GenAI-Powered Chatbot for the EU AI Act](#genai-powered-chatbot-for-the-eu-ai-act)
+    - [INSEP - Athlete Mental Preparation Optimization](#insep---athlete-mental-preparation-optimization)
+    - [Thales - Radar Waveform Pattern Detection](#thales---radar-waveform-pattern-detection)
 
-### Creation of an GenAI-Powered Chatbot for the EU AI Act
-● Engineered a chatbot for the EU AI Act, combining Mistral 7B with a Retrieval Augmented Generation (RAG)  
-● Utilized LangChain and Hugging Face for model integration and data retrieval  
-● Deployed the Flask web application on Google Cloud Platform with Docker  
+## Projects
 
+### GenAI-Powered Chatbot for the EU AI Act
 
-### INSEP | Paris, France | February 2023 - Sept 2023
-Internship Data high performance automation engineer  
-Goal: Enhance the mental preparation of athletes in the French national youth rugby team.  
-Impacts:  
-● Retrieved and processed athletes' data dynamically through APIs  
-● Developed and automated data management using Python  
-● Created a Python-based algorithm to generate weekly individual HTML reports for 24 athletes, including personalized insights for mental performance optimization  
+**Project Overview:**
 
+Engineered a chatbot to provide information and answer questions about the EU AI Act, utilizing Retrieval Augmented Generation (RAG) and the Mistral 7B language model.
 
-### Thales | Paris, France | March 2022 - Sept 2022
-Internship Radar waveform learning engineer for electromagnetic listening  
-Goal: Investigate and propose an hypothesis on pattern detection thresholds on radars’ detection.  
-Impacts:
-● Determined the relationship between classification thresholds and the probability of false alarms
-(PFA)  
-● Developed a Python-based algorithm for pattern recognition in real-world noisy radar recordings
+**Technology Used:**
+
+* Mistral 7B
+* LangChain
+* Hugging Face
+* Flask
+* Docker
+* Google Cloud Platform (GCP)
+
+**Impact:**
+
+* Developed an interactive tool for exploring complex legal documents.
+* Deployed a scalable web application on GCP.
+
+### INSEP - Athlete Mental Preparation Optimization
+
+**Project Overview:**
+
+Enhanced the mental preparation of young French national rugby athletes through data-driven insights and personalized reporting.
+
+**Technology Used:**
+
+* Python
+* APIs (LimeSurvey, Google Forms)
+* Flask
+* HTML
+
+**Impact:**
+
+* Automated data retrieval and processing, saving significant time.
+* Developed an algorithm to generate weekly personalized HTML reports for 24 athletes.
+* Provided actionable insights for mental performance optimization.
+
+### Thales - Radar Waveform Pattern Detection
+
+**Project Overview:**
+
+Investigated and proposed hypotheses on pattern detection thresholds in radar systems for electromagnetic listening.
+
+**Technology Used:**
+
+* Python
+* Statistical analysis
+* Signal processing libraries (NumPy, SciPy)
+
+**Impact:**
+
+* Determined the relationship between classification thresholds and the probability of false alarms (PFA).
+* Developed a Python algorithm for pattern recognition in noisy radar recordings.
+* Improved the understanding of radar detection in noisy environments.

@@ -1,6 +1,17 @@
-# Internship Report: Radar Waveform Learning Engineer for Electromagnetic Listening
+<h1 align="left">Internship Report: Radar Waveform Learning Engineer for Electromagnetic Listening</h1>
 
-## Project Description
+This project focused on investigating and proposing hypotheses for pattern detection thresholds in radar systems, specifically for electromagnetic listening applications. The goal was to improve the understanding of radar detection in noisy environments and develop practical tools for signal processing.
+
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Technical Approach](#technical-approach)
+- [Results](#results)
+- [Skills and Tools](#skills-and-tools)
+- [Installation and Setup](#installation-and-setup)
+- [Contributor](#contributor)
+
+## Project Overview
 
 This project focused on investigating and proposing hypotheses for pattern detection thresholds in radar systems, specifically for electromagnetic listening applications. The goal was to improve the understanding of radar detection in noisy environments and develop practical tools for signal processing.
 
@@ -17,15 +28,32 @@ This project focused on investigating and proposing hypotheses for pattern detec
 
 ## Results
 
-* **Threshold-PFA Relationship:**  Established a clear relationship between the classification threshold and the PFA, allowing for more informed selection of thresholds.
+* **Threshold-PFA Relationship:** Established a clear relationship between the classification threshold and the PFA, allowing for more informed selection of thresholds.
 * **Pattern Recognition Algorithm:** Developed a working algorithm capable of detecting radar waveform patterns in real-world data.
 
 ## Skills and Tools
 
-* **Radar Signal Processing:**  Gained experience with radar signal processing concepts and techniques.
-* **Statistical Analysis:**  Applied statistical methods for data analysis and modeling.
-* **Python Development:**  Enhanced Python programming skills, particularly in scientific computing and signal processing libraries.
+* **Radar Signal Processing:** Gained experience with radar signal processing concepts and techniques.
+* **Statistical Analysis:** Applied statistical methods for data analysis and modeling.
+* **Python Development:** Enhanced Python programming skills, particularly in scientific computing and signal processing libraries.
 
-## Conclusion
+## Installation and Setup
 
-This internship provided valuable insights into radar signal processing and pattern recognition. The project successfully demonstrated the ability to analyze detection thresholds and develop algorithms for real-world data.
+Since this was an internship project and the data and specific implementations are likely proprietary, a full installation guide is not applicable. However, the project heavily relied on Python and its scientific computing libraries.
+
+For a similar project, you would likely need:
+
+* **Python:** Python 3.x
+* **NumPy:** For numerical computations
+* **SciPy:** For signal processing and statistical functions
+* **Matplotlib/Seaborn:** For data visualization
+
+You can install these using pip:
+
+```bash
+pip install numpy scipy matplotlib seaborn
+```  
+
+## Contributor
+
+Léonard Baesen ([https://github.com/Leow92](https://github.com/Leow92))
