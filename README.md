@@ -11,7 +11,7 @@ Welcome! This portfolio showcases a collection of my projects and experiences, h
 
 ## Projects
 
-### GenAI-Powered Chatbot for the EU AI Act
+### GenAI-Powered Chatbot for the EU AI Act - <a href="https://github.com/Leow92/Portfolio_Leonard_Baesen/tree/main/Chatbot_AI_Act" target="_blank">Link</a>
 
 **Project Overview:**
 
@@ -31,7 +31,7 @@ Engineered a chatbot to provide information and answer questions about the EU AI
 * Developed an interactive tool for exploring complex legal documents.
 * Deployed a scalable web application on GCP.
 
-### INSEP - Athlete Mental Preparation Optimization
+### INSEP - Athlete Mental Preparation Optimization - <a href="https://github.com/Leow92/Portfolio_Leonard_Baesen/tree/main/Mission%20Thales" target="_blank">Link</a>
 
 **Project Overview:**
 
@@ -50,7 +50,7 @@ Enhanced the mental preparation of young French national rugby athletes through 
 * Developed an algorithm to generate weekly personalized HTML reports for 24 athletes.
 * Provided actionable insights for mental performance optimization.
 
-### Thales - Radar Waveform Pattern Detection
+### Thales - Radar Waveform Pattern Detection - <a href="https://github.com/Leow92/Portfolio_Leonard_Baesen/tree/main/Mission_INSEP" target="_blank">Link</a>
 
 **Project Overview:**
 
